@@ -34,7 +34,12 @@ function load_stats() {
             let data = JSON.parse(this.response);
 
             for (let i in data) {
-                get_stats(data[i].name);
+                for (let t in data[i].topics) {
+                    let topic = data[i].topics[t];
+                    if (topic == 'datapack' || topic == 'resourcepack' || topic == 'map' || topic == 'event') {
+                        get_stats(data[i].name);
+                    }
+                }
             }
 
             display();
@@ -55,14 +60,13 @@ function get_stats(name) {
         let data = JSON.parse(this.response);
         let release_downloads = 0;
         for (let i in data) {
-            console.log(data[i])
             for (let n in data[i].assets) {
                 release_downloads += data[i].assets[n].download_count;
             }
             // check releases prior ~02/2022
             // (before PMC merge)
-            if (name in downloads_accounted) {
-                release_downloads += downloads_accounted[name];
+            if (name.toUpperCase() in downloads_accounted) {
+                release_downloads += downloads_accounted[name.toUpperCase()];
             }
     
             localStorage.setItem(`${name}_stats`,release_downloads);
@@ -89,7 +93,7 @@ function display() {
 
     // total
     let em_total = document.createElement('p');
-    em_total.innerHTML = `total: ${total}`;
+    em_total.innerHTML = `total: <strong>${total}</strong>`;
 
     document.getElementById('stats').appendChild(em_total);
 }
