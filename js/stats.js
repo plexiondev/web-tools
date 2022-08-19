@@ -4,16 +4,16 @@
 // account for downloads prior ~02/2022
 // (before PMC merge)
 const downloads_accounted = {
-    'lava-rising': 7171,
-    'void-rising': 1575,
-    'simple-dark': 1136,
-    'uhc': 791,
-    'water-rising': 781,
-    'metro-dark-theme': 476,
-    'opendyslexic-font': 328,
-    'infection': 135,
-    'vip': 67,
-    'haunting-hunters': 80
+    'Lava-Rising': 7171,
+    'Void-Rising': 1575,
+    'Simple-Dark': 1136,
+    'UHC': 791,
+    'Water-Rising': 781,
+    'Metro-Dark-Theme': 476,
+    'OpenDyslexic-Font': 328,
+    'Infection': 135,
+    'VIP': 67,
+    'Haunting-Hunters': 80
 }
 let repos = [];
 
@@ -65,8 +65,8 @@ function get_stats(name) {
             }
             // check releases prior ~02/2022
             // (before PMC merge)
-            if (name.toUpperCase() in downloads_accounted) {
-                release_downloads += downloads_accounted[name.toUpperCase()];
+            if (name in downloads_accounted) {
+                release_downloads += downloads_accounted[name];
             }
     
             localStorage.setItem(`${name}_stats`,release_downloads);
