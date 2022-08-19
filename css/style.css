@@ -1,0 +1,43 @@
+/* web-tools */
+
+
+body {
+    background-color: #000000;
+    font-family: tahoma, sans-serif;
+    color: #FFFFFF;
+    padding: 20px;
+    line-height: 22px;
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+li {
+    padding-left: 20px;
+}
+li:before {
+    content: '- ';
+}
+
+a {
+    color: #a5d1cc;
+    text-decoration: none;
+}
+a:is(:hover, :focus) {
+    color: #000000;
+    background-color: #a5d1cc;
+}
+
+strong {
+    font-weight: 600;
+}
+
+blockquote {
+    border-left: 2px solid #ff0042;
+    color: #ff0042;
+    padding: 0 10px;
+    margin: 10px 0;
+}
