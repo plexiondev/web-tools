@@ -29,7 +29,7 @@ function load_stats() {
 
     xhr.onload = function() {
         if (xhr.status == 403) {
-            document.getElementById('stats').innerHTML = '<blockquote>reached API rate limit, <a href="https://plexion.dev/library/rates" target="_blank">view rate limit</a>.</blockquote>';
+            document.getElementById('stats').innerHTML = '<blockquote><strong>ERROR:</strong> reached API rate limit, <a href="https://plexion.dev/library/rates" target="_blank">view rate limit</a>.</blockquote>';
         } else {
             let data = JSON.parse(this.response);
 
