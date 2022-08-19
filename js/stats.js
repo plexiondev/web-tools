@@ -65,7 +65,7 @@ function get_stats(name) {
                 release_downloads += downloads_accounted[name];
             }
     
-            localStorage.setItem(`${data[i].name}_stats`,release_downloads);
+            localStorage.setItem(`${name}_stats`,release_downloads);
         }
     }
 
